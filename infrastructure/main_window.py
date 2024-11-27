@@ -11,10 +11,14 @@ class MainWindow:
         self.record_service = record_service
         self.start_time = None
         self.current_letter = None
+        self.letters = [ 'a' ]
         self.correct_letters = 0
         self.total_letters = 0
         self.username = ""
         self.is_training = False
+        self.number_letters_displayed = 3
+
+        random.seed(time.time())
 
         root.title("Вариант 16. клавиатурный тренажер")
 
@@ -61,6 +65,7 @@ class MainWindow:
         self.timer_label.pack(pady=5)
 
         self.input_entry = tk.Entry(self.training_frame, font=("Arial", 24))
+        self.input_entry.focus()
         self.input_entry.pack(pady=5)
         self.input_entry.bind("<KeyRelease>", self.check_input)
 
@@ -71,12 +76,17 @@ class MainWindow:
         self.update_timer()
 
     def next_letter(self):
-        self.current_letter = random.choice("abcdefghijklmnopqrstuvwxyz")
-        self.current_letter_label.config(text=self.current_letter)
+        self.generate_letters()
+        self.current_letter_label.config(text=self.letters[self.total_letters:self.total_letters + 3])
         self.input_entry.delete(0, tk.END)
+    
+    def generate_letters(self):
+        while self.total_letters + self.number_letters_displayed >= len(self.letters):
+            letter = random.choice("abcdefghijklmnopqrstuvwxyz")
+            self.letters.append(letter)
 
     def check_input(self, event):
-        if self.input_entry.get() == self.current_letter:
+        if self.input_entry.get() == self.letters[self.total_letters]:
             self.correct_letters += 1
         self.total_letters += 1
         self.next_letter()
