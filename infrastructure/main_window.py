@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 import random
 import time
 
@@ -40,7 +41,7 @@ class MainWindow:
         self.is_training = True
 
         if not self.username:
-            tk.messagebox.showwarning("Ошибка", "Введите имя!")
+            messagebox.showwarning("Ошибка", "Введите имя!")
             return
 
         self.main_frame.pack_forget()
@@ -91,7 +92,9 @@ class MainWindow:
 
     def cancel_training(self):
         self.is_training = False
-        self.show_results()
+        self.training_frame.pack_forget()
+        self.main_frame.pack()
+        self.update_records_display()
 
     def show_results(self):
         accuracy = round(((self.correct_letters / self.total_letters) * 100), 2) if self.total_letters > 0 else 0
