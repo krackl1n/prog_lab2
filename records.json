@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Roma",
+        "score": 54,
+        "accuracy": 100.0
+    },
+    {
+        "name": "neRoma",
+        "score": 0,
+        "accuracy": 0
+    }
+]

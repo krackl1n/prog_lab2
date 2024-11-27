@@ -53,8 +53,8 @@ class MainWindow:
         self.current_letter_label = tk.Label(self.training_frame, text="", font=("Arial", 48))
         self.current_letter_label.pack()
 
-        self.cancel_button = tk.Label(self.training_frame, text="60 секунд", font=("Arial", 18))
-        self.timer_label.pack(pady=5)
+        self.cancel_button = tk.Button(self.training_frame, text="Отменить тренировку", font=("Arial", 18), command=self.cancel_training)
+        self.cancel_button.pack(pady=5)
 
         self.timer_label = tk.Label(self.training_frame, text="60 секунд", font=("Arial", 18))
         self.timer_label.pack(pady=5)
