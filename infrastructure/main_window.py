@@ -3,7 +3,7 @@ from tkinter import messagebox
 import random
 import time
 
-from core.entities.models import Record
+from core.models import Record
 
 class MainWindow:
     def __init__(self, root, record_service):

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
 
-from core.entities.models import Record
+from core.models import Record
 
 
 class IRecordRepository(ABC):

@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from core.services.record_service import RecordService
+from core.record_service import RecordService
 from infrastructure.json_record_repository import JsonRecordRepository
 from infrastructure.main_window import MainWindow
 

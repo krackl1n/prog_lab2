@@ -1,7 +1,7 @@
 from typing import List, Optional
 
-from core.entities.models import Record
-from core.repositories.record_repository import IRecordRepository
+from core.models import Record
+from core.record_repository import IRecordRepository
 
 class RecordService:
 
