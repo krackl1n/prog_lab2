@@ -16,7 +16,7 @@ class MainWindow:
         self.total_letters = 0
         self.username = ""
         self.is_training = False
-        self.number_letters_displayed = 3
+        self.number_letters_displayed = 5
 
         random.seed(time.time())
 
@@ -77,7 +77,7 @@ class MainWindow:
 
     def next_letter(self):
         self.generate_letters()
-        self.current_letter_label.config(text=self.letters[self.total_letters:self.total_letters + 3])
+        self.current_letter_label.config(text=self.letters[self.total_letters:self.total_letters + self.number_letters_displayed])
         self.input_entry.delete(0, tk.END)
     
     def generate_letters(self):
